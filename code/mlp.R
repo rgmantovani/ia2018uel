@@ -30,7 +30,7 @@ mlp.create = function(input.length = 2, hidden.length = 2,
 # OK
 # -----------------------------------------------------------------
 
-mlp.forward.2 = function(model, example) {
+mlp.forward = function(model, example) {
 
   # adding bias input (+1)
   example = as.numeric(c(example, 1))
@@ -78,7 +78,7 @@ mlp.train = function(model, dataset, lrn.rate = 0.1,
       Yp = as.numeric(dataset[p,(model$input.length+1):ncol(dataset)])
 
       # move forward in the net
-      res = mlp.forward.2(model = model, example = Xp)
+      res = mlp.forward(model = model, example = Xp)
       Op  = res$fnet.output
 
       # obtain the error
@@ -126,7 +126,7 @@ mlp.train = function(model, dataset, lrn.rate = 0.1,
 
 mlp.test = function(model, example) {
 
-  res = mlp.forward.2(model = model, example = example)
+  res = mlp.forward(model = model, example = example)
   return(res)
 }
 
