@@ -2,10 +2,9 @@
 # -----------------------------------------------------------------
 
 # activation function
-
-# F is the eucliadian norm of the vector (norm)
 act.function = function(x, mu, gamma) {
 
+  # F is the eucliadian norm of the vector (norm)
   distance = norm(as.matrix(x - mu),"F")^2
   phi = exp(-gamma * distance)
   return(phi)
@@ -36,9 +35,8 @@ rbf.train = function(dataset, K = 10, gamma = 1.0) {
       break
   }
   #
-  # # acess the clusters points
+  # acess the clusters points
   mus = km$centers
-  # mus = as.matrix(cbind(runif(k+1,-1,1), runif(k+1,-1,1)))
 
   # initialize Phi matrix
   Phi = matrix(rep(NA,(K+1)*N), ncol=K+1)
@@ -57,7 +55,6 @@ rbf.train = function(dataset, K = 10, gamma = 1.0) {
 
   # return model
   model = list(weights = w, centers = mus, gamma = gamma)
-
   return(model)
 }
 
