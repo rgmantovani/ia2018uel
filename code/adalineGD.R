@@ -31,7 +31,7 @@ adalineGD.train = function(dataset, n.iter = 100, lrn.rate = 0.0001,
 
   # initialize vector to keep track of cost and error function per epoch
   cost  = rep(0, n.iter) # cost - sqaured error
-  error = rep(0, n.iter) # accuract (right or wrong?)
+  error = rep(0, n.iter) # accuracy (right or wrong?)
 
   # loop over the number of epochs
   for (n in 1:n.iter) {
