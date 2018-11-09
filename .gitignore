@@ -1,6 +1,7 @@
 classes/*.key
 classes/aux
 code/output
-code/links
+code/aux
+code/tests/*.pdf
 code/help
 *.jpg
