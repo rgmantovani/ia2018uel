@@ -14,8 +14,10 @@ my.data
 plot(my.data[,-3], col=(ys+3)/2, pch=19, xlim=c(-1,6), ylim=c(-1,6))
 
 # training a svm
-svm.model = e1071::svm(type ~ ., data = my.data, type='C-classification',
+svm.model = e1071::svm(type ~ ., data = my.data,
+  type='C-classification',
   kernel='linear', scale = FALSE)
+
 svm.model
 
 # ploting data and support vectors
@@ -29,8 +31,8 @@ p = svm.model$SV
 
 # plotting marging
 abline(a=-b/w[1,2], b=-w[1,1]/w[1,2], col="black", lty=1)
-abline(a=(-b-1)/w[1,2], b=-w[1,1]/w[1,2], col="orange", lty=3)
-abline(a=(-b+1)/w[1,2], b=-w[1,1]/w[1,2], col="orange", lty=3)
+abline(a=(-b-1)/w[1,2], b=-w[1,1]/w[1,2], col="red", lty=3)
+abline(a=(-b+1)/w[1,2], b=-w[1,1]/w[1,2], col="red", lty=3)
 
 # -------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------
