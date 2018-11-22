@@ -23,10 +23,11 @@ perceptron.train = function(dataset, weights = NULL, lrn.rate = 0.3,
       break
     }
 
+
     error  = FALSE
     epochs = epochs + 1
     avgError = 0
-
+    cat("Epoca:", epochs,"\n")
 
     for(i in 1:nrow(dataset)) {
 
@@ -37,9 +38,9 @@ perceptron.train = function(dataset, weights = NULL, lrn.rate = 0.3,
       v = as.numeric(x %*% weights)
 
       # output
-      y = sign(v)
+      # y = sign(v)
       # it could also be:
-      # y = ifelse(y >=0, +1, -1)
+      y = ifelse(v >=0, +1, -1)
 
       avgError = avgError + ((example[class.id] - y)^2)
 
@@ -48,6 +49,7 @@ perceptron.train = function(dataset, weights = NULL, lrn.rate = 0.3,
         error = TRUE
         weights = weights + lrn.rate * (example[class.id] - y) * example[-class.id]
       }
+      print(weights)
     }
 
     avgError = avgError/nrow(dataset)
@@ -71,7 +73,8 @@ perceptron.predict = function(example, weights) {
   v = as.numeric(example %*% weights)
   # it also works as:
   # v = sum(example * weights)
-  y = sign(v)
+  # y = sign(v)
+  y = ifelse(v >=0, +1, -1)
   return(y)
 }
 

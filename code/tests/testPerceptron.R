@@ -15,24 +15,26 @@ set.seed(seed.value)
 # -----------------------------------------------------------------
 
 # artificial dataset
-x1    = c(4,2,5,3,1.5,2.5,4,5,1.5,3,5,4)
-x2    = c(5,4.5,4.5,4,3,3,3,3,1.5,2,1.5,1)
-bias  = 1
-class = c(1,-1,1,1,-1,-1,1,1,-1,-1,1,-1)
-dataset = data.frame(bias, x1, x2, class)
+#x1    = c(4,2,5,3,1.5,2.5,4,5,1.5,3,5,4)
+#x2    = c(5,4.5,4.5,4,3,3,3,3,1.5,2,1.5,1)
+#bias  = 1
+#class = c(1,-1,1,1,-1,-1,1,1,-1,-1,1,-1)
+#dataset = data.frame(bias, x1, x2, class)
 
-# dataset OR (uncomment to run with this dataset)
-# x1 = c(0,0,1,1)
-# x2 = c(0,1,0,1)
-# bias  = 1
-# class = c(-1,1,1,1)
-# dataset = data.frame(bias, x1, x2, class)
+# dataset AND (uncomment to run with this dataset)
+ x1 = c(0,0,1,1)
+ x2 = c(0,1,0,1)
+ bias  = 1
+ class = c(-1,-1,-1,1)
+ dataset = data.frame(bias, x1, x2, class)
 
 # -----------------------------------------------------------------
 #  training perceptron
 # -----------------------------------------------------------------
 
-obj = perceptron.train(dataset = dataset, lrn.rate = 0.5)
+w = c(0.5, 0.5, 0.5)
+obj = perceptron.train(dataset = dataset, weights = w,
+  lrn.rate = 0.5)
 
 # -----------------------------------------------------------------
 # plotting training error convergence
