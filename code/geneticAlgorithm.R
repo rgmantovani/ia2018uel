@@ -88,8 +88,9 @@ geneticAlgorithm = function(dist.matrix, selection = "random", ncities = nrow(di
 	}
 
 	ret = list()
-	ret$avgFitness = c()
-	ret$sdFitness = c()
+	ret$avgFitness  = c()
+	ret$sdFitness   = c()
+	ret$bestFitness = c()
 	ret$lastPopulation
 
 	# itera o algoritmo por N iteracoes
@@ -102,8 +103,9 @@ geneticAlgorithm = function(dist.matrix, selection = "random", ncities = nrow(di
 				distance.matrix = dist.matrix)
 		}
 
-		ret$avgFitness = c(ret$avgFitness, mean(fitness))
-		ret$sdFitness = c(ret$sdFitness, sd(fitness))
+		ret$avgFitness  = c(ret$avgFitness, mean(fitness))
+		ret$sdFitness   = c(ret$sdFitness, sd(fitness))
+		ret$bestFitness = c(ret$bestFitness, max(fitness))
 
 		# produzir N filhos
 		childPopulation = NULL

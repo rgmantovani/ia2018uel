@@ -17,9 +17,12 @@ print(mat.dist)
 # -------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------
 
+POPULATION.SIZE = 10000
+
+
 # test01
 obj = steadyState(dist = mat.dist, ncities = nrow(mat.dist),
-  population.size = 100, ngenerations = 5000)
+  population.size = 100, ngenerations = POPULATION.SIZE)
 
 # plot(x = 1:length(obj$avgFitness), y = obj$avgFitness)
 
@@ -37,19 +40,19 @@ nrow(unique(obj$population[ids,]))
 # -------------------------------------------------------------------------------------------------
 
 obj2 = generationBased(dist = mat.dist, k.childreen = 10, ncities = nrow(mat.dist),
-	population.size = 100, ngenerations = 5000)
+	population.size = 100, ngenerations = POPULATION.SIZE)
 
 # -------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------
 
 obj3 = evolutionaryProgramming(dist.matrix = mat.dist, ncities = nrow(mat.dist),
-  pop.size = 100, ngenerations = 5000)
+  pop.size = 100, ngenerations = POPULATION.SIZE)
 
 # -------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------
 
 obj4 = geneticAlgorithm(dist.matrix = mat.dist, selection = "roulette",
-  ncities = nrow(mat.dist), pop.size = 100, ngenerations = 5000,
+  ncities = nrow(mat.dist), pop.size = 100, ngenerations = POPULATION.SIZE,
   mutation.prob = 0.02, elitism = 0.1, k = 2)
 
 # -------------------------------------------------------------------------------------------------
